@@ -6,16 +6,19 @@
 #include "include/fileManager.h"
 
 
-void callBuilder(char *files, char *buildName) {
+void callBuilder(char *files, int argc, char *argv[]) {
   char command[999999] = "gcc";
   searchFiles(".", files);
 
   strcat(command, files);
-  
-  // if buildName isn't null
-  if(strcmp(buildName, "")) {
-    strcat(command, " -o ");
-    strcat(command, buildName);
+  strcat(command, " -o ");
+  strcat(command, argv[1]);
+
+  if(argc >= 2) {
+    for(int i = 2; i < argc; i++) {
+      strcat(command, " ");
+      strcat(command, argv[i]);
+    }
   }
   
   system(command);

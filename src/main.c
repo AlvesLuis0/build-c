@@ -3,13 +3,10 @@
 #include "include/fileManager.h"
 
 
-int main(int argc, char *args[]) {
+int main(int argc, char *argv[]) {
   char text[999999];
 
-  if(argc == 2)
-    callBuilder(text, args[1]);
-
-  callBuilder(text, "");
+  callBuilder(text, argc, argv);
 
   return 1;
 }
