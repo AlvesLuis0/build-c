@@ -8,6 +8,7 @@
 
 void callBuilder(char *files, int argc, char *argv[]) {
   char command[999999] = "gcc";
+
   searchFiles(".", files);
 
   strcat(command, files);
@@ -20,7 +21,8 @@ void callBuilder(char *files, int argc, char *argv[]) {
       strcat(command, argv[i]);
     }
   }
-  
+
+  puts(command);
   system(command);
 
   exit(0);
